@@ -1,2 +1,0 @@
-# gorba
-Gorba News
