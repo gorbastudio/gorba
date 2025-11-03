@@ -1,0 +1,13 @@
+- [Inicio](README.md)
+- [Estado del Proyecto](STATUS.md)
+- **Desarrollo Android**
+  - [Guía de Desarrollo Android](android_app_development.md)
+- **Desarrollo Backend**
+  - [Backend con Python](python_backend_development.md)
+  - [Backend con JavaScript](javascript_backend_development.md)
+- **Desarrollo Web**
+  - [Web Básico](web_development_basic.md)
+  - [Web Dinámico](web_development_dynamic.md)
+  - [Aplicaciones Web Complejas](web_development_complex.md)
+- **Desarrollo Híbrido**
+  - [Web + Android](hybrid_app_development.md)
