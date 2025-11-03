@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Documentación técnica de Gorba Studio - Desarrollo de software web, Android y Windows">
+  <title>Gorba Studio - Documentación</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/pages/docs.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@11/styles/github.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+</head>
+<body>
+  <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
+
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-heading">
+      <h2>Documentación</h2>
+    </div>
+
+    <nav class="nav-accordion" id="nav-accordion">
+      <!-- Acordeón generado dinámicamente -->
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <header class="header">
+      <h1>Gorba Studio Docs</h1>
+      <p>Centro de conocimiento técnico y guías de desarrollo</p>
+    </header>
+
+    <div class="container">
+      <a href="home.html" class="back-link">← Volver al sitio web</a>
+
+      <div id="content" class="content">
+        <div class="loading">Cargando documentación...</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/auto-render.min.js"></script>
+
+  <script>
+    let currentDoc = 'getting-started/status.md'; // Documento por defecto
+
+    async function loadDocsTree() {
+      try {
+        const response = await fetch('./docs-tree.json?v=' + new Date().getTime()); // Evitar caché
+        if (!response.ok) throw new Error(`No se pudo cargar docs-tree.json: ${response.statusText}`);
+        const tree = await response.json();
+        return tree;
+      } catch (error) {
+        console.error('Error cargando docs-tree.json:', error);
+        return null;
+      }
+    }
+
+    /**
+     * Construye el menú de navegación de forma recursiva a partir del árbol de documentos.
+     * @param {object[]} nodes - Array de nodos (archivos/directorios) del nivel actual.
+     * @param {number} level - El nivel de profundidad actual (para indentación).
+     * @returns {DocumentFragment} - Un fragmento de documento con los elementos HTML del menú.
+     */
+    function buildNavNodes(nodes, level = 0) {
+      const fragment = document.createDocumentFragment();
+
+      nodes.forEach(node => {
+        if (node.type === 'directory') {
+          const section = document.createElement('section');
+          section.className = 'accordion-item';
+
+          const button = document.createElement('button');
+          button.className = 'accordion-trigger';
+          button.setAttribute('aria-expanded', 'false');
+          button.innerHTML = `
+            <span class="label">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="opacity: 0.7;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+              ${node.title}
+            </span>
+            <span class="chevron">▼</span>
+          `;
+
+          const panel = document.createElement('div');
+          panel.className = 'accordion-panel';
+          panel.dataset.path = node.slug;
+
+          // Llamada recursiva para los hijos
+          if (node.children && node.children.length > 0) {
+            panel.appendChild(buildNavNodes(node.children, level + 1));
+          }
+
+          button.addEventListener('click', () => {
+            const isOpen = button.classList.toggle('open');
+            button.setAttribute('aria-expanded', isOpen);
+            panel.classList.toggle('open', isOpen);
+          });
+
+          section.append(button, panel);
+          fragment.appendChild(section);
+        } else { // node.type === 'file'
+          const link = document.createElement('a');
+          link.className = 'doc-link';
+          link.href = `#${node.slug}`;
+          link.textContent = node.title;
+          link.dataset.path = node.slug;
+          link.dataset.depth = level;
+
+          fragment.appendChild(link);
+        }
+      });
+
+      return fragment;
+    }
+
+    /**
+     * Función principal que inicializa la construcción del menú.
+     * @param {object} tree - El objeto raíz del docs-tree.json.
+     */
+    function buildNavAccordion(tree) {
+      const navContainer = document.getElementById('nav-accordion');
+      if (!navContainer || !tree?.children) {
+        navContainer.innerHTML = '<p class="loading-message">No se pudo construir la navegación.</p>';
+        return;
+      }
+
+      navContainer.innerHTML = ''; // Limpiar contenido antiguo
+      const navFragment = buildNavNodes(tree.children, 0);
+      navContainer.appendChild(navFragment);
+    }
+
+    function setActiveLink(path) {
+      document.querySelectorAll('.doc-link').forEach(link => {
+        const isActive = link.dataset.path === path;
+        link.classList.toggle('active', isActive);
+
+        // Expandir categorías padre del enlace activo
+        if (isActive) {
+          let parentPanel = link.closest('.accordion-panel');
+          while(parentPanel) {
+            const trigger = parentPanel.previousElementSibling;
+            if (trigger && trigger.classList.contains('accordion-trigger')) {
+              trigger.classList.add('open');
+              trigger.setAttribute('aria-expanded', 'true');
+              parentPanel.classList.add('open');
+            }
+            parentPanel = parentPanel.parentElement.closest('.accordion-panel');
+          }
+        }
+      });
+    }
+
+    /*
+    function buildNavAccordion(tree) {
+      const nav = document.getElementById('nav-accordion');
+      nav.innerHTML = '';
+
+      function createNav(node, level = 0) {
+        if (node.directories && node.directories.length > 0) {
+          const categoryDiv = document.createElement('div');
+          categoryDiv.className = 'nav-category';
+
+          const button = document.createElement('button');
+          button.className = 'nav-category-toggle';
+          button.setAttribute('aria-expanded', 'false');
+          button.innerHTML = `<span class="nav-chevron">▸</span>${node.name}`;
+
+          const submenu = document.createElement('div');
+          submenu.className = 'nav-submenu';
+          submenu.setAttribute('aria-hidden', 'true');
+
+          node.directories.forEach(sub => {
+            submenu.appendChild(createNav(sub, level + 1));
+          });
+
+          node.files.forEach(file => {
+            const link = document.createElement('a');
+            link.className = 'nav-link';
+            link.href = `#${file.path}`;
+            link.textContent = file.name.replace('.md', '').replace(/_/g, ' ');
+            link.dataset.path = file.path;
+            submenu.appendChild(link);
+          });
+
+          button.addEventListener('click', () => {
+            const expanded = button.getAttribute('aria-expanded') === 'true';
+            button.setAttribute('aria-expanded', !expanded);
+            submenu.setAttribute('aria-hidden', expanded);
+          });
+
+          categoryDiv.appendChild(button);
+          categoryDiv.appendChild(submenu);
+          return categoryDiv;
+        } else if (node.files && node.files.length > 0) {
+          const div = document.createElement('div');
+          node.files.forEach(file => {
+            const link = document.createElement('a');
+            link.className = 'nav-link';
+            link.href = `#${file.path}`;
+            link.textContent = file.name.replace('.md', '').replace(/_/g, ' ');
+            link.dataset.path = file.path;
+            link.style.marginLeft = `${level * 20}px`;
+            div.appendChild(link);
+          });
+          return div;
+        }
+        return document.createElement('div');
+      }
+
+      tree.directories.forEach(dir => {
+        nav.appendChild(createNav(dir));
+      });
+    }*/
+
+    async function loadDoc(path) {
+      if (!path) return;
+      
+      // Limpiar el path de caracteres especiales
+      path = path.replace(/^#/, '').trim();
+      currentDoc = path;
+      setActiveLink(path);
+      window.location.hash = path;
+
+      try {
+        const fetchUrl = `../docs/${path}`;
+        const response = await fetch(fetchUrl);
+        if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+
+        const markdown = await response.text();
+        const html = renderMarkdown(markdown);
+
+        document.getElementById('content').innerHTML = html;
+
+        document.querySelectorAll('pre code').forEach((block) => {
+          if (typeof hljs !== 'undefined' && hljs.highlightElement) {
+            try {
+              hljs.highlightElement(block);
+            } catch (e) {
+              console.warn('Error al resaltar código:', e);
+            }
+          } else {
+            console.warn('highlight.js no está disponible');
+          }
+        });
+
+        if (typeof renderMathInElement === 'function') {
+          renderMathInElement(document.getElementById('content'), {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+            ]
+          });
+        } else {
+          console.warn('renderMathInElement no está disponible');
+        }
+
+      } catch (error) {
+        console.error('Error loading document:', path, error);
+        document.getElementById('content').innerHTML =
+          `<div style="text-align: center; color: var(--color-accent); padding: 2rem;">
+            <h2>Error al cargar el documento</h2>
+            <p>${error.message}</p>
+            <p><small>Verifica que el archivo <code>${path}</code> exista en la carpeta docs/</small></p>
+            <p><small>URL intentada: <code>./docs/${path}</code></small></p>
+          </div>`;
+      }
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+    }
+
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function renderMarkdown(markdown) {
+      if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
+        return marked.parse(markdown);
+      }
+
+      console.warn('marked no está disponible, usando renderer básico');
+      const escaped = escapeHtml(markdown);
+      return `<pre style="white-space: pre-wrap;">${escaped}</pre>`;
+    }
+
+    // Inicializar
+    window.addEventListener('load', () => {
+      initializeApp();
+    });
+    
+    async function initializeApp() {
+      const docsTree = await loadDocsTree();
+
+      if (!docsTree || !docsTree.children || docsTree.children.length === 0) {
+        console.error('No hay documentos para mostrar.');
+        document.getElementById('content').innerHTML = `
+          <div style="text-align: center; color: var(--color-accent); padding: 2rem;">
+            <h2>No se encontraron documentos</h2>
+            <p>Verifica que <code>docs-tree.json</code> se genere correctamente.</p>
+          </div>`;
+        return;
+      }
+      
+      buildNavAccordion(docsTree);
+      
+      // Event delegation para los enlaces
+      document.getElementById('nav-accordion').addEventListener('click', (e) => {
+        if (e.target.matches('.doc-link')) {
+          e.preventDefault();
+          const path = e.target.dataset.path;
+          loadDoc(path);
+        }
+      });
+
+      // Cargar documento inicial
+      const hash = window.location.hash.substring(1);
+      const initialPath = hash || 'getting-started/status.md';
+      loadDoc(initialPath);
+    }
+
+    window.addEventListener('hashchange', () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) loadDoc(hash);
+    });
+
+    marked.setOptions({
+      breaks: true,
+      gfm: true,
+      headerIds: true,
+      mangle: false
+    });
+  </script>
+</body>
+</html>
