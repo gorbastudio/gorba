@@ -58,32 +58,63 @@
       height: 100vh;
       background: var(--color-card-bg-strong);
       border-right: 1px solid var(--color-border-medium);
-      padding: 2rem 1rem;
+      padding: 1.75rem 1rem 2.5rem;
       overflow-y: auto;
       box-shadow: var(--shadow-card);
       z-index: 1000;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-border-strong) transparent;
     }
 
-    .sidebar h2 {
-      margin-top: 0;
-      color: var(--color-primary);
-      font-size: 1.2rem;
-      border-bottom: 2px solid var(--color-primary);
-      padding-bottom: 0.5rem;
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
     }
 
-    .sidebar hr {
-      border: none;
-      height: 1px;
+    .sidebar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .sidebar::-webkit-scrollbar-thumb {
       background: var(--color-border-medium);
-      margin: 1rem 0;
+      border-radius: 3px;
     }
 
-    .sidebar-accordion {
-      margin-top: 1.5rem;
+    .sidebar-heading {
       display: flex;
       flex-direction: column;
       gap: 0.25rem;
+      padding: 0 0.5rem 0.75rem;
+      border-bottom: 1px solid var(--color-border-medium);
+    }
+
+    .sidebar-heading h2 {
+      margin: 0;
+      color: var(--color-primary);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .sidebar-heading p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--color-muted);
+      line-height: 1.4;
+    }
+
+    .sidebar-accordion {
+      margin: 1.5rem 0 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .loading-message {
+      padding: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--color-muted);
     }
 
     .accordion-item {
@@ -127,6 +158,11 @@
       color: var(--color-accent);
     }
 
+    .accordion-trigger:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
     .accordion-trigger.open .chevron {
       transform: rotate(180deg);
       opacity: 1;
@@ -160,6 +196,11 @@
       color: var(--color-accent);
     }
 
+    .doc-link:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
+
     .doc-link.active {
       background: var(--color-nav-hover-bg);
       color: var(--color-accent);
@@ -176,6 +217,15 @@
 
     .doc-link[data-depth="3"] {
       padding-left: 3rem;
+    }
+
+    .nav-section-heading {
+      margin: 1rem 0 0.35rem;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-muted);
+      padding: 0 0.75rem;
     }
 
     .main-content {
@@ -285,52 +335,13 @@
   <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
 
   <div class="sidebar" id="sidebar">
-    <h2>📚 Documentación</h2>
-    <ul class="sidebar-accordion">
-        <li><a class="doc-link" href="#README.md">README.md</a></li>
-        <li><a class="doc-link" href="#android_app_development.md">android_app_development.md</a></li>
-        <li><a class="doc-link" href="#android.md">android.md</a></li>
-        <li><a class="doc-link" href="#backend.md">backend.md</a></li>
-        <li><a class="doc-link" href="#getting-started.md">getting-started.md</a></li>
-        <li><a class="doc-link" href="#hybrid_app_development.md">hybrid_app_development.md</a></li>
-        <li><a class="doc-link" href="#hybrid.md">hybrid.md</a></li>
-        <li><a class="doc-link" href="#integrated_platform_architecture.md">integrated_platform_architecture.md</a></li>
-        <li><a class="doc-link" href="#javascript_backend_development.md">javascript_backend_development.md</a></li>
-        <li><a class="doc-link" href="#python_backend_development.md">python_backend_development.md</a></li>
-        <li><a class="doc_link" href="#status.md">status.md</a></li>
-        <li><a class="doc-link" href="#web_development_basic.md">web_development_basic.md</a></li>
-        <li><a class="doc-link" href="#web_development_complex.md">web_development_complex.md</a></li>
-        <li><a class="doc-link" href="#web_development_dynamic.md">web_development_dynamic.md</a></li>
-        <li><a class="doc-link" href="#windows_hybrid_app_development.md">windows_hybrid_app_development.md</a></li>
-        <li class="accordion-item">
-            <button class="accordion-trigger">
-                <span class="label">clientes-ejemplos</span>
-                <span class="chevron">⌃</span>
-            </button>
-            <div class="accordion-panel">
-                <a class="doc-link" href="#clientes-ejemplos/casos_exito.md">casos_exito.md</a>
-            </div>
-        </li>
-        <li class="accordion-item">
-            <button class="accordion-trigger">
-                <span class="label">security</span>
-                <span class="chevron">⌃</span>
-            </button>
-            <div class="accordion-panel">
-                <a class="doc-link" href="#security/security_best_practices.md">security_best_practices.md</a>
-            </div>
-        </li>
-        <li class="accordion-item">
-            <button class="accordion-trigger">
-                <span class="label">tutoriales</span>
-                <span class="chevron">⌃</span>
-            </button>
-            <div class="accordion-panel">
-                <a class="doc-link" href="#tutoriales/README.md">README.md</a>
-                <a class="doc-link" href="#tutoriales/entorno_desarrollo.md">entorno_desarrollo.md</a>
-            </div>
-        </li>
-    </ul>
+    <div class="sidebar-heading">
+      <h2>Documentación</h2>
+    </div>
+
+    <nav class="nav-accordion" id="nav-accordion">
+      <!-- Acordeón generado dinámicamente -->
+    </nav>
   </div>
 
   <div class="main-content">
@@ -348,71 +359,201 @@
     </div>
   </div>
 
-  <script src="//cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/highlight.js@11/lib/highlight.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/auto-render.min.js"></script>
 
   <script>
-    let currentDoc = 'status.md';
+    // Mapeo de directorios a categorías y títulos de archivos
+    const categoryMap = {
+      'getting-started': {
+        name: 'Inicio',
+        files: {
+          'getting-started/getting-started.md': 'Introducción',
+          'getting-started/status.md': 'Estado del Proyecto'
+        }
+      },
+      'guides': {
+        name: 'Guías',
+        files: {
+          'guides/android_app_development.md': 'Aplicaciones Nativas',
+          'guides/android.md': 'Guía Rápida Android',
+          'guides/backend.md': 'Resumen Backend',
+          'guides/python_backend_development.md': 'Desarrollo Python',
+          'guides/javascript_backend_development.md': 'Desarrollo JavaScript',
+          'guides/web_development_basic.md': 'Sitios Web Básicos',
+          'guides/web_development_dynamic.md': 'Aplicaciones Dinámicas',
+          'guides/web_development_complex.md': 'Aplicaciones Complejas',
+          'guides/hybrid_app_development.md': 'Web + Android',
+          'guides/windows_hybrid_app_development.md': 'Escritorio Python',
+          'guides/hybrid.md': 'Resumen Híbrido'
+        }
+      },
+      'tutorials': {
+        name: 'Tutoriales',
+        files: {
+          'tutorials/entorno_desarrollo.md': 'Entorno de Desarrollo'
+        }
+      },
+      'examples': {
+        name: 'Clientes',
+        files: {
+          'examples/casos_exito.md': 'Casos de Éxito'
+        }
+      },
+      'architecture': {
+        name: 'Arquitectura',
+        files: {
+          'architecture/integrated_platform_architecture.md': 'Plataforma Integral'
+        }
+      },
+      'security': {
+        name: 'Seguridad',
+        files: {
+          'security/security_best_practices.md': 'Mejores Prácticas'
+        }
+      }
+    };
 
-    function initAccordion() {
-      document.querySelectorAll('.accordion-trigger').forEach(button => {
-        button.addEventListener('click', (event) => {
-          event.preventDefault();
-          const panel = button.nextElementSibling;
-          if (!panel) return;
-          const isOpen = panel.classList.toggle('open');
-          button.classList.toggle('open', isOpen);
+    let docStructure = {};
+
+    let currentDoc = 'getting-started/status.md';
+
+    async function loadDocsTree() {
+      try {
+        console.log('Loading docs-tree.json...');
+        const response = await fetch('./docs-tree.json');
+        console.log('docs-tree.json response:', response.status);
+        const tree = await response.json();
+        console.log('docs-tree.json loaded:', tree);
+        
+        // Construir docStructure desde el árbol
+        docStructure = {};
+        
+        tree.directories.forEach(dir => {
+          const categoryInfo = categoryMap[dir.name];
+          if (categoryInfo) {
+            docStructure[categoryInfo.name] = {};
+            dir.files.forEach(file => {
+              const title = categoryInfo.files[file.path] || file.name.replace('.md', '');
+              docStructure[categoryInfo.name][file.path] = title;
+            });
+          }
         });
+        
+        console.log('docStructure built:', docStructure);
+        return true;
+      } catch (error) {
+        console.error('Error cargando docs-tree.json:', error);
+        // Fallback a estructura manual si falla
+        docStructure = {};
+        Object.values(categoryMap).forEach(({ name, files }) => {
+          if (!name || !files) return;
+          docStructure[name] = { ...files };
+        });
+        return false;
+      }
+    }
+
+    function buildNavAccordion() {
+      const container = document.getElementById('nav-accordion');
+      
+      Object.entries(docStructure).forEach(([category, files]) => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.className = 'nav-category';
+        
+        const button = document.createElement('button');
+        button.className = 'nav-category-toggle';
+        button.setAttribute('aria-expanded', 'false');
+        button.innerHTML = `<span class="nav-chevron">▸</span>${category}`;
+        
+        const submenu = document.createElement('div');
+        submenu.className = 'nav-submenu';
+        submenu.setAttribute('aria-hidden', 'true');
+        
+        Object.entries(files).forEach(([file, title]) => {
+          const link = document.createElement('a');
+          link.className = 'nav-link';
+          link.href = `#${file}`;
+          link.textContent = title;
+          link.dataset.path = file;
+          submenu.appendChild(link);
+        });
+        
+        button.addEventListener('click', () => {
+          const expanded = button.getAttribute('aria-expanded') === 'true';
+          button.setAttribute('aria-expanded', !expanded);
+          submenu.setAttribute('aria-hidden', expanded);
+        });
+        
+        categoryDiv.appendChild(button);
+        categoryDiv.appendChild(submenu);
+        container.appendChild(categoryDiv);
+      });
+    }
+
+    function setActiveLink(path) {
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.toggle('active', link.dataset.path === path);
       });
     }
 
     async function loadDoc(path) {
       if (!path) return;
-
-      // Remove leading '#' from path
-      if (path.startsWith('#')) {
-        path = path.substring(1);
-      }
-
+      
+      // Limpiar el path de caracteres especiales
+      path = path.replace(/^#/, '').trim();
       currentDoc = path;
-      document.querySelectorAll('.doc-link').forEach(link => link.classList.remove('active'));
-      const target = document.querySelector(`.doc-link[href="#${path}"]`);
-      if (target) {
-        target.classList.add('active');
-      }
-
+      setActiveLink(path);
       window.location.hash = path;
 
       try {
-        const response = await fetch(`./docs/${path}`);
-        if (!response.ok) throw new Error('Documento no encontrado');
+        const fetchUrl = `./docs/${path}`;
+        console.log('Fetching:', fetchUrl);
+        const response = await fetch(fetchUrl);
+        console.log('Response status:', response.status);
+        if (!response.ok) throw new Error(`HTTP ${response.status}: ${response.statusText}`);
 
         const markdown = await response.text();
-        const html = marked.parse(markdown);
+        console.log('Markdown length:', markdown.length);
+        const html = renderMarkdown(markdown);
 
         document.getElementById('content').innerHTML = html;
 
         document.querySelectorAll('pre code').forEach((block) => {
-          hljs.highlightElement(block);
+          if (typeof hljs !== 'undefined' && hljs.highlightElement) {
+            try {
+              hljs.highlightElement(block);
+            } catch (e) {
+              console.warn('Error al resaltar código:', e);
+            }
+          } else {
+            console.warn('highlight.js no está disponible');
+          }
         });
 
-        renderMathInElement(document.getElementById('content'), {
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '$', right: '$', display: false},
-            {left: '\(', right: '\)', display: false},
-            {left: '\[', right: '\]', display: true}
-          ]
-        });
+        if (typeof renderMathInElement === 'function') {
+          renderMathInElement(document.getElementById('content'), {
+            delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+            ]
+          });
+        } else {
+          console.warn('renderMathInElement no está disponible');
+        }
 
       } catch (error) {
+        console.error('Error loading document:', path, error);
         document.getElementById('content').innerHTML =
           `<div style="text-align: center; color: var(--color-accent); padding: 2rem;">
-            <h2>❌ Error al cargar el documento</h2>
+            <h2>Error al cargar el documento</h2>
             <p>${error.message}</p>
             <p><small>Verifica que el archivo <code>${path}</code> exista en la carpeta docs/</small></p>
+            <p><small>URL intentada: <code>./docs/${path}</code></small></p>
           </div>`;
       }
     }
@@ -421,24 +562,129 @@
       document.getElementById('sidebar').classList.toggle('open');
     }
 
-    window.addEventListener('load', async () => {
-      initAccordion();
-      const hash = window.location.hash.substring(1);
-      if (hash) {
-        loadDoc(hash);
-      } else {
-        loadDoc('status.md');
+    function escapeHtml(str) {
+      return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    function renderMarkdown(markdown) {
+      if (typeof marked !== 'undefined' && typeof marked.parse === 'function') {
+        return marked.parse(markdown);
       }
 
-      // Add click listeners to all doc links
-      document.querySelectorAll('.doc-link').forEach(link => {
-        link.addEventListener('click', (event) => {
-          event.preventDefault();
-          const path = link.getAttribute('href');
-          loadDoc(path);
-        });
-      });
+      console.warn('marked no está disponible, usando renderer básico');
+      const escaped = escapeHtml(markdown);
+      return `<pre style="white-space: pre-wrap;">${escaped}</pre>`;
+    }
+
+    // CSS adicional para el acordeón corporativo
+    const additionalCSS = `
+      .nav-category {
+        margin-bottom: 0.5rem;
+      }
+      
+      .nav-category-toggle {
+        all: unset;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        width: 100%;
+        padding: 0.6rem 0.75rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--color-text);
+        transition: background 0.2s;
+      }
+      
+      .nav-category-toggle:hover,
+      .nav-category-toggle:focus-visible {
+        background: var(--color-nav-hover-bg);
+        outline: none;
+      }
+      
+      .nav-category-toggle[aria-expanded="true"] .nav-chevron {
+        transform: rotate(90deg);
+      }
+      
+      .nav-chevron {
+        font-size: 0.7rem;
+        transition: transform 0.2s;
+      }
+      
+      .nav-submenu {
+        padding-left: 1rem;
+        margin-top: 0.25rem;
+      }
+      
+      .nav-submenu[aria-hidden="true"] {
+        display: none;
+      }
+      
+      .nav-link {
+        display: block;
+        padding: 0.45rem 0.75rem;
+        color: var(--color-muted);
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        transition: background 0.2s, color 0.2s;
+      }
+      
+      .nav-link:hover,
+      .nav-link:focus-visible,
+      .nav-link.active {
+        background: var(--color-nav-hover-bg);
+        color: var(--color-accent);
+        outline: none;
+      }
+    `;
+
+    // Agregar CSS adicional
+    const style = document.createElement('style');
+    style.textContent = additionalCSS;
+    document.head.appendChild(style);
+
+    // Inicializar
+    window.addEventListener('load', () => {
+      initializeApp();
     });
+    
+    async function initializeApp() {
+      const loaded = await loadDocsTree();
+      if (!loaded) {
+        console.warn('Usando estructura de documentación de respaldo.');
+      }
+
+      if (!docStructure || Object.keys(docStructure).length === 0) {
+        console.error('No hay documentos para mostrar.');
+        document.getElementById('content').innerHTML = `
+          <div style="text-align: center; color: var(--color-accent); padding: 2rem;">
+            <h2>No se encontraron documentos</h2>
+            <p>Verifica que <code>docs-tree.json</code> se genere correctamente.</p>
+          </div>`;
+        return;
+      }
+
+      buildNavAccordion();
+      
+      // Event delegation para los enlaces
+      document.getElementById('nav-accordion').addEventListener('click', (e) => {
+        if (e.target.classList.contains('nav-link')) {
+          e.preventDefault();
+          const path = e.target.dataset.path;
+          loadDoc(path);
+        }
+      });
+
+      // Cargar documento inicial
+      const hash = window.location.hash.substring(1);
+      const initialPath = hash || 'getting-started/status.md';
+      loadDoc(initialPath);
+    }
 
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.substring(1);

@@ -1,36 +1,42 @@
-- [**🏠 Inicio**](README.md)
-- [**📋 Estado del Proyecto**](status.md)
+﻿- [**🏠 Inicio**](README.md)
+- [**📋 Estado del Proyecto**](getting-started/status.md)
 
 ---
 
-## 🚀 Primeros Pasos
-- [Guía de Inicio](README.md)
+## 🚀 Getting Started
+- [Getting Started](getting-started/getting-started.md)
 
 ---
 
-## 📱 Desarrollo Android
-- [Aplicaciones Nativas Android](android_app_development.md)
+## 📚 Guides
+- [Android App Development](guides/android_app_development.md)
+- [Backend Development](guides/backend.md)
+- [Hybrid App Development](guides/hybrid_app_development.md)
+- [JavaScript Backend Development](guides/javascript_backend_development.md)
+- [Python Backend Development](guides/python_backend_development.md)
+- [Web Development Basic](guides/web_development_basic.md)
+- [Web Development Dynamic](guides/web_development_dynamic.md)
+- [Web Development Complex](guides/web_development_complex.md)
+- [Windows Hybrid App Development](guides/windows_hybrid_app_development.md)
+- [Android Development](guides/android.md)
+- [Hybrid Development](guides/hybrid.md)
 
 ---
 
-## ⚙️ Desarrollo Backend
-- [Backend con Python](python_backend_development.md)
-- [Backend con JavaScript](javascript_backend_development.md)
+## 🎓 Tutorials
+- [Development Environment Setup](tutorials/entorno_desarrollo.md)
 
 ---
 
-## 🌐 Desarrollo Web
-- [Sitios Web Básicos](web_development_basic.md)
-- [Aplicaciones Web Dinámicas](web_development_dynamic.md)
-- [Aplicaciones Web Complejas](web_development_complex.md)
+## 💡 Examples
+- [Success Cases](examples/casos_exito.md)
 
 ---
 
-## 🔄 Desarrollo Híbrido
-- [Web + Android](hybrid_app_development.md)
-- [Aplicaciones Escritorio Python](windows_hybrid_app_development.md)
+## 🏗️ Architecture
+- [Integrated Platform Architecture](architecture/integrated_platform_architecture.md)
 
 ---
 
-## 🏗️ Arquitectura
-- [Plataforma Integral](integrated_platform_architecture.md)
+## 🔒 Security
+- [Security Best Practices](security/security_best_practices.md)

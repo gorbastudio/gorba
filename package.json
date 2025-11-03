@@ -1,0 +1,16 @@
+{
+  "name": "gorba-studio",
+  "version": "6.0.0",
+  "description": "Gorba Studio - Landing page y documentación dinámica",
+  "main": "index.html",
+  "scripts": {
+    "build:docs-tree": "node scripts/generate-docs-tree.js"
+  },
+  "keywords": [
+    "documentation",
+    "landing-page"
+  ],
+  "author": "Gorba Studio",
+  "license": "MIT",
+  "dependencies": {}
+}

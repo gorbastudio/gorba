@@ -1,0 +1,121 @@
+{
+  "name": "docs",
+  "path": "",
+  "files": [],
+  "directories": [
+    {
+      "name": "architecture",
+      "path": "architecture/",
+      "files": [
+        {
+          "name": "integrated_platform_architecture.md",
+          "path": "architecture/integrated_platform_architecture.md"
+        }
+      ],
+      "directories": []
+    },
+    {
+      "name": "examples",
+      "path": "examples/",
+      "files": [
+        {
+          "name": "casos_exito.md",
+          "path": "examples/casos_exito.md"
+        }
+      ],
+      "directories": []
+    },
+    {
+      "name": "getting-started",
+      "path": "getting-started/",
+      "files": [
+        {
+          "name": "getting-started.md",
+          "path": "getting-started/getting-started.md"
+        },
+        {
+          "name": "status.md",
+          "path": "getting-started/status.md"
+        }
+      ],
+      "directories": []
+    },
+    {
+      "name": "guides",
+      "path": "guides/",
+      "files": [
+        {
+          "name": "android.md",
+          "path": "guides/android.md"
+        },
+        {
+          "name": "android_app_development.md",
+          "path": "guides/android_app_development.md"
+        },
+        {
+          "name": "backend.md",
+          "path": "guides/backend.md"
+        },
+        {
+          "name": "hybrid.md",
+          "path": "guides/hybrid.md"
+        },
+        {
+          "name": "hybrid_app_development.md",
+          "path": "guides/hybrid_app_development.md"
+        },
+        {
+          "name": "javascript_backend_development.md",
+          "path": "guides/javascript_backend_development.md"
+        },
+        {
+          "name": "modern_documentation_practices.md",
+          "path": "guides/modern_documentation_practices.md"
+        },
+        {
+          "name": "python_backend_development.md",
+          "path": "guides/python_backend_development.md"
+        },
+        {
+          "name": "web_development_basic.md",
+          "path": "guides/web_development_basic.md"
+        },
+        {
+          "name": "web_development_complex.md",
+          "path": "guides/web_development_complex.md"
+        },
+        {
+          "name": "web_development_dynamic.md",
+          "path": "guides/web_development_dynamic.md"
+        },
+        {
+          "name": "windows_hybrid_app_development.md",
+          "path": "guides/windows_hybrid_app_development.md"
+        }
+      ],
+      "directories": []
+    },
+    {
+      "name": "security",
+      "path": "security/",
+      "files": [
+        {
+          "name": "security_best_practices.md",
+          "path": "security/security_best_practices.md"
+        }
+      ],
+      "directories": []
+    },
+    {
+      "name": "tutorials",
+      "path": "tutorials/",
+      "files": [
+        {
+          "name": "entorno_desarrollo.md",
+          "path": "tutorials/entorno_desarrollo.md"
+        }
+      ],
+      "directories": []
+    }
+  ]
+}
