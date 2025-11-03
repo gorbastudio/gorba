@@ -1,9 +1,9 @@
-# Best Practices de Seguridad
+# Mejores Prácticas de Seguridad
 
 ## Autenticación y Autorización
 
 - Implementar autenticación de dos factores para todas las cuentas administrativas
-- Utilizar JWT con tokens de acceso y refresh tokens
+- Utilizar JWT con tokens de acceso y tokens de refresco
 - Aplicar principios de mínimo privilegio en los permisos
 
 ## Protección de Datos

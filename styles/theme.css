@@ -29,4 +29,5 @@
   --color-form-border: rgba(148, 163, 184, 0.25);
   --color-primary-alpha: rgba(139, 92, 246, 0.45);
   --color-accent-alpha: rgba(34, 211, 238, 0.35);
+  --font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 }

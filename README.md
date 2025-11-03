@@ -15,24 +15,47 @@ Sitio web estático para Gorba Studio, empresa especializada en desarrollo de so
 
 ```
 gorba/
-├── index.html              # Archivo principal
+├── index.html                    # Redirección a templates/home.html
 ├── scripts/
-│   └── main.js            # JavaScript principal
+│   ├── index.js                 # Punto de entrada principal (ES6 modules)
+│   ├── modules/
+│   │   ├── android.js          # Integración Android WebView
+│   │   ├── navigation.js       # Navegación responsive y menú
+│   │   └── utils.js            # Utilidades generales
+│   └── generate-docs-tree.js   # Generador de árbol de documentación
 ├── styles/
-│   └── styles.css         # Estilos combinados
-├── templates/             # Templates modulares HTML
-│   ├── header.html
-│   ├── hero.html
-│   ├── about.html
-│   ├── services.html
-│   ├── projects.html
-│   ├── roadmap.html
-│   ├── contact.html
-│   ├── docs.html
-│   └── footer.html
-├── docs/                  # Documentación
-│   ├── STATUS.md
-│   └── android_app_development.md
+│   ├── styles.css              # Archivo maestro (imports)
+│   ├── theme.css               # Variables de color y tema
+│   ├── base/
+│   │   ├── base.css           # Reset, tipografía, contenedores
+│   │   └── utilities.css      # Clases atómicas
+│   ├── layout/
+│   │   └── layout.css         # Navbar, footer, navegación
+│   ├── components/
+│   │   ├── buttons.css        # Estilos de botones
+│   │   └── ui.css             # Cards, tags, métricas, etc.
+│   └── pages/
+│       ├── home.css           # Estilos específicos de home
+│       ├── contact.css        # Estilos específicos de contacto
+│       └── docs.css           # Estilos específicos de docs
+├── templates/                   # Templates HTML
+│   ├── home.html               # Página principal
+│   ├── about.html              # Sobre nosotros
+│   ├── services.html           # Servicios
+│   ├── projects.html           # Proyectos
+│   ├── team.html               # Equipo
+│   ├── clients.html            # Clientes
+│   ├── roadmap.html            # Roadmap
+│   ├── contact.html            # Contacto
+│   ├── docs.html               # Portal de documentación
+│   └── components/
+│       ├── header.html         # Header compartido
+│       └── footer.html         # Footer compartido
+├── docs/                        # Documentación técnica (Markdown)
+│   ├── getting-started/
+│   ├── guides/
+│   ├── architecture/
+│   └── examples/
 └── README.md
 ```
 
@@ -65,20 +88,67 @@ gorba/
 
 ### Tema de Color
 
-Los colores están centralizados en variables CSS. Para cambiar el tema, edita `:root` en `styles.css`.
+Los colores están centralizados en variables CSS. Para cambiar el tema, edita `:root` en `styles/theme.css`.
+
+### Estilos
+
+La arquitectura CSS está modularizada:
+- **`styles/theme.css`**: Variables de color y fuentes
+- **`styles/base/`**: Reset, tipografía, utilidades
+- **`styles/layout/`**: Navbar, footer, navegación responsive
+- **`styles/components/`**: Botones, cards, tags, UI components
+- **`styles/pages/`**: Estilos específicos por página (home, contact, docs)
+- **`styles/styles.css`**: Archivo maestro que importa todos los módulos
+
+### JavaScript
+
+El código JavaScript está organizado en módulos ES6:
+- **`scripts/index.js`**: Punto de entrada que orquesta la inicialización
+- **`scripts/modules/android.js`**: Integración con Android WebView
+- **`scripts/modules/navigation.js`**: Navegación colapsable y responsive
+- **`scripts/modules/utils.js`**: Funciones utilitarias (debounce, throttle, etc.)
 
 ### Contenido
 
 Edita los archivos en `templates/` para modificar secciones.
 
+### Documentación
+
+La sección de documentación (`docs.html`) se genera dinámicamente a partir de los archivos en la carpeta `/docs`.
+
+**Para agregar o modificar documentación:**
+
+1.  **Crea o edita archivos**: Añade o modifica archivos `.md` o carpetas dentro del directorio `/docs`.
+2.  **(Opcional) Personaliza el orden y los títulos**:
+    -   Crea un archivo `_meta.json` dentro de cualquier carpeta para definir un título personalizado para esa categoría o para establecer un orden específico de sus elementos.
+    -   **Ejemplo de `_meta.json` en `docs/guides/`**:
+        ```json
+        {
+          "title": "Guías de Desarrollo",
+          "order": {
+            "web": 1,
+            "mobile": 2,
+            "desktop": 3
+          }
+        }
+        ```
+3.  **Regenera el árbol de navegación**: Ejecuta el siguiente comando en tu terminal. Necesitas tener Node.js instalado.
+    ```bash
+    node ./scripts/generate-docs-tree.js
+    ```
+4.  **Verifica los cambios**: Recarga `docs.html` en tu navegador para ver el menú lateral actualizado.
+
 ## 📱 Características
 
-- ✅ Diseño responsivo
-- ✅ Menú colapsable para móviles
-- ✅ Carga modular de contenido
-- ✅ Compatible con app Android
-- ✅ SEO básico
-- ✅ Performance optimizada
+- ✅ **Diseño responsivo**: Adaptable a todos los dispositivos
+- ✅ **Menú colapsable**: Navegación optimizada para móviles y tablets
+- ✅ **Arquitectura modular**: CSS y JS organizados en módulos (~250 líneas/archivo)
+- ✅ **ES6 Modules**: JavaScript moderno con imports/exports
+- ✅ **Compatible con Android WebView**: Integración nativa con app Android
+- ✅ **Portal de documentación**: Sistema dinámico de docs con Markdown
+- ✅ **SEO optimizado**: Meta tags y estructura semántica
+- ✅ **Performance**: CSS modular, lazy loading, sin frameworks pesados
+- ✅ **Accesibilidad**: ARIA labels, navegación por teclado
 
 ## 🚀 Despliegue
 

@@ -19,11 +19,31 @@
       ]
     },
     {
+      "name": "examples",
+      "title": "Examples",
+      "slug": "examples",
+      "type": "directory",
+      "children": [
+        {
+          "name": "casos_exito.md",
+          "title": "Casos Exito",
+          "slug": "examples/casos_exito.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
       "name": "getting-started",
       "title": "Getting Started",
       "slug": "getting-started",
       "type": "directory",
       "children": [
+        {
+          "name": "getting-started.md",
+          "title": "Getting Started",
+          "slug": "getting-started/getting-started.md",
+          "type": "file"
+        },
         {
           "name": "status.md",
           "title": "Status",
@@ -31,12 +51,6 @@
           "type": "file"
         }
       ]
-    },
-    {
-      "name": "getting-started.md",
-      "title": "Getting Started",
-      "slug": "getting-started.md",
-      "type": "file"
     },
     {
       "name": "guides",
