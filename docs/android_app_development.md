@@ -4,9 +4,7 @@ Crear una aplicación no es solo un proyecto técnico, es la construcción de un
 
 ### Fase 1: Estrategia y Planificación (La Brújula de tu Proyecto)
 
-Antes de escribir una línea de código, definimos el rumbo. Una idea brillante necesita una estrategia para conquistar el mercado.
 
-*   **¿Qué hacemos aquí?**
     *   **Análisis de Mercado y Competencia:** Investigamos el ecosistema de tu sector. ¿Qué hacen tus competidores? ¿Qué oportunidades existen? ¿Hay un público real para tu idea?
     *   **Definición del Público Objetivo:** Creamos perfiles detallados de tus usuarios ideales. Entender sus necesidades, deseos y frustraciones es clave para diseñar una solución que amen.
     *   **Propuesta Única de Valor:** ¿Qué hace a tu app diferente y mejor que las demás? Juntos, definiremos ese mensaje central que te hará destacar.
