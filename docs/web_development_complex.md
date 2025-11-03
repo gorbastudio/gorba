@@ -4,9 +4,7 @@ Cuando tu negocio necesita más que un sitio web, una aplicación web a medida e
 
 ### Fase 1: Estrategia y Arquitectura
 
-Las aplicaciones complejas requieren una base estratégica y técnica extremadamente sólida.
 
-*   **¿Qué hacemos aquí?**
     *   **Taller de Descubrimiento:** Realizamos sesiones intensivas contigo para entender a fondo tus procesos de negocio, los problemas a resolver y los objetivos a largo plazo.
     *   **Arquitectura de Microservicios vs. Monolítica:** Tomamos decisiones arquitectónicas clave. ¿Construimos la aplicación como un gran sistema unificado (monolito) o como un conjunto de pequeños servicios independientes que se comunican entre sí (microservicios)? La elección depende de la complejidad y la escala del proyecto.
     *   **Selección Tecnológica:** Elegimos el "stack" tecnológico más adecuado, combinando un framework de frontend moderno (como React, Vue o Angular) con un backend robusto (Node.js, Python, etc.) y la base de datos óptima.

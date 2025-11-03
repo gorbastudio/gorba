@@ -4,9 +4,7 @@ Cuando necesitas que tu sitio web evolucione y te permita gestionar tu propio co
 
 ### Fase 1: Estrategia y Planificación
 
-Un sitio dinámico requiere una planificación cuidadosa de su contenido y su estructura.
 
-*   **¿Qué hacemos aquí?**
     *   **Estrategia de Contenido:** Definimos qué tipos de contenido necesitarás (artículos de blog, noticias, páginas de servicios, etc.) y cómo se organizarán.
     *   **Selección del CMS (Sistema de Gestión de Contenidos):** Te ayudamos a elegir la plataforma adecuada para tus necesidades. Puede ser un CMS tradicional como WordPress, que ofrece una gran flexibilidad y una enorme comunidad, o un CMS "Headless" para una mayor seguridad y rendimiento.
     *   **Arquitectura de la Información:** Diseñamos la navegación y la estructura del sitio para que los usuarios encuentren fácilmente el contenido que buscan.

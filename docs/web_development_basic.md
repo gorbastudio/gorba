@@ -6,8 +6,7 @@ Para una presencia en línea directa y efectiva, un sitio web estático es a men
 
 En los sitios web sencillos, la agilidad es clave. Combinamos la estrategia y el diseño en una fase rápida y colaborativa.
 
-*   **¿Qué hacemos aquí?**
-    *   **Definición de Objetivos:** ¿Cuál es el propósito principal del sitio? ¿Informar, captar clientes, mostrar un trabajo? Definimos un objetivo claro y medible.
+ ¿Cuál es el propósito principal del sitio? ¿Informar, captar clientes, mostrar un trabajo? Definimos un objetivo claro y medible.
     *   **Diseño Visual:** Creamos un diseño limpio, moderno y adaptado a tu marca. Nos centramos en la usabilidad y en que el mensaje principal sea claro desde el primer vistazo.
     *   **Diseño Adaptativo (Responsive):** Diseñamos para que tu sitio se vea perfecto en cualquier dispositivo: móviles, tabletas y ordenadores de escritorio.
 
