@@ -169,56 +169,14 @@ function initializeCurrentYear() {
   }
 }
 
-async function loadTemplates() {
-  const header = document.querySelector('header');
-  if (header) {
-    try {
-      const response = await fetch('./templates/header.html');
-      const html = await response.text();
-      header.innerHTML = html;
-    } catch (error) {
-      console.error('Error loading header template:', error);
-    }
-  }
-
-  const main = document.querySelector('main');
-  if (main) {
-    const sections = ['hero', 'about', 'services', 'projects', 'roadmap', 'contact', 'docs'];
-    for (const section of sections) {
-      try {
-        const response = await fetch(`./templates/${section}.html`);
-        const html = await response.text();
-        main.insertAdjacentHTML('beforeend', html);
-      } catch (error) {
-        console.error(`Error loading ${section} template:`, error);
-      }
-    }
-  }
-
-  const footer = document.querySelector('footer');
-  if (footer) {
-    try {
-      const response = await fetch('./templates/footer.html');
-      const html = await response.text();
-      footer.innerHTML = html;
-    } catch (error) {
-      console.error('Error loading footer template:', error);
-    }
-  }
-}
-
 initializeAndroidDetection();
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', async () => {
-    await loadTemplates();
+  document.addEventListener('DOMContentLoaded', () => {
     initializeCollapsibleNav();
     initializeCurrentYear();
   });
 } else {
-  (async () => {
-    await loadTemplates();
-    initializeCollapsibleNav();
-    initializeCurrentYear();
-  })();
+  initializeCollapsibleNav();
+  initializeCurrentYear();
 }
