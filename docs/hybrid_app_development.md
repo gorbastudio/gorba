@@ -10,8 +10,7 @@ El corazón de este enfoque es una aplicación web moderna y potente (construida
 
 Todo comienza con la construcción de una aplicación web de primera clase, siguiendo los mismos principios que en nuestro proceso para aplicaciones web complejas.
 
-*   **¿Qué hacemos aquí?**
-    *   **Arquitectura y Estrategia:** Definimos la arquitectura del sistema, la tecnología y la estrategia de producto.
+ Definimos la arquitectura del sistema, la tecnología y la estrategia de producto.
     *   **Diseño UX/UI Centrado en Móviles (Mobile-First):** Diseñamos la experiencia pensando primero en la pantalla de un móvil. Esto garantiza que la aplicación sea intuitiva y fácil de usar en dispositivos pequeños, y luego adaptamos ese diseño a pantallas más grandes.
     *   **Desarrollo Frontend y Backend:** Construimos la aplicación con un frontend interactivo y un backend robusto que gestiona los datos y la lógica de negocio.
 

@@ -4,9 +4,7 @@ JavaScript es el lenguaje de la web moderna, y su poder no se limita al navegado
 
 ### Fase 1: Estrategia y Planificación (Los Cimientos de tu Sistema)
 
-Antes de diseñar la solución, debemos entender el problema a fondo. Esta fase se centra en alinear la tecnología con los objetivos de tu negocio.
 
-*   **¿Qué hacemos aquí?**
     *   **Análisis de Procesos de Negocio:** Nos sumergimos en tus operaciones diarias para entender tus flujos de trabajo, identificar cuellos de botella y descubrir oportunidades de automatización.
     *   **Definición de Requisitos:** Traducimos tus necesidades en un documento claro de requisitos funcionales y no funcionales. ¿Qué debe hacer el software? ¿Qué niveles de rendimiento y seguridad necesita?
     *   **Modelado de Datos:** Diseñamos la estructura de la información que manejará el sistema, ya sea para una base de datos SQL tradicional o una base de datos NoSQL más flexible.
