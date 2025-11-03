@@ -201,7 +201,7 @@
     <h2>📚 Documentación</h2>
     <ul id="nav-list">
       <li><a href="#" onclick="loadDoc('README.md')" class="active">Inicio</a></li>
-      <li><a href="#" onclick="loadDoc('STATUS.md')">Estado del Proyecto</a></li>
+      <li><a href="#" onclick="loadDoc('status.md')">Estado del Proyecto</a></li>
       <li><strong>Desarrollo Android</strong></li>
       <li><a href="#" onclick="loadDoc('android_app_development.md')">Guía Android</a></li>
       <li><strong>Desarrollo Backend</strong></li>
@@ -255,7 +255,7 @@
       window.location.hash = filename;
 
       try {
-        const response = await fetch(`docs/${filename}`);
+        const response = await fetch(`https://raw.githubusercontent.com/gorbastudio/gorba/main/docs/${filename}`);
         if (!response.ok) throw new Error('Documento no encontrado');
 
         const markdown = await response.text();
