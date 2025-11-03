@@ -186,14 +186,139 @@
   color: var(--color-muted);
 }
 
+.docs {
+  position: relative;
+  padding: clamp(4rem, 8vw, 6rem) 0;
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-accent-bg) 100%);
+  overflow: hidden;
+}
+
+.docs::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(103, 126, 234, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.docs .container {
+  position: relative;
+  z-index: 1;
+}
+
+.docs-navigation {
+  text-align: center;
+  margin: 2rem 0 3rem;
+}
+
+.docs-navigation .btn {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.docs-navigation .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
 .docs-grid {
   display: grid;
   gap: clamp(1.5rem, 2.5vw, 2.75rem);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  margin-top: 3rem;
+}
+
+.docs-card {
+  position: relative;
+  background: var(--color-card);
+  border: 1px solid var(--color-border-light);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+
+.docs-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
+}
+
+.docs-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  border-color: var(--color-accent);
+}
+
+.docs-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.docs-card h3::before {
+  content: "📄";
+  font-size: 1.5rem;
+  opacity: 0.7;
+}
+
+.docs-card p {
+  margin: 0 0 1.5rem 0;
+  color: var(--color-muted);
+  line-height: 1.6;
 }
 
 .docs-card a {
   color: var(--color-accent);
   font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
+
+.docs-card a:hover {
+  color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.docs-card a::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.docs-card a:hover::after {
+  transform: translateX(4px);
+}
+
+/* Specific icons for different doc types */
+.docs-card:nth-child(1) h3::before { content: "📊"; } /* Estado del Proyecto */
+.docs-card:nth-child(2) h3::before { content: "🤖"; } /* Android */
+.docs-card:nth-child(3) h3::before { content: "🐍"; } /* Python Backend */
+.docs-card:nth-child(4) h3::before { content: "⚡"; } /* JavaScript Backend */
+.docs-card:nth-child(5) h3::before { content: "🌐"; } /* Web Básico */
+.docs-card:nth-child(6) h3::before { content: "🔄"; } /* Web Dinámico */
+.docs-card:nth-child(7) h3::before { content: "🚀"; } /* Web Complejo */
+.docs-card:nth-child(8) h3::before { content: "🔗"; } /* Híbrido */
+.docs-card:nth-child(9) h3::before { content: "🖥️"; } /* Escritorio Python */
+.docs-card:nth-child(10) h3::before { content: "🏗️"; } /* Arquitectura */
+.docs-card:nth-child(11) h3::before { content: "⚙️"; } /* Proceso */
