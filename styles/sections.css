@@ -1,0 +1,199 @@
+/* Section-specific styles */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: clamp(6rem, 12vw, 10rem) 0;
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero::before {
+  background: radial-gradient(circle at top left, var(--color-primary-alpha), transparent 55%),
+    radial-gradient(circle at bottom right, var(--color-accent-alpha), transparent 60%);
+}
+
+.hero::after {
+  background: linear-gradient(180deg, var(--color-hero-overlay), var(--color-background));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+}
+
+.hero-title {
+  font-size: clamp(2.85rem, 5vw, 4rem);
+  margin-bottom: 1.25rem;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, var(--color-accent), var(--color-primary-strong));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-lead {
+  font-size: clamp(1.1rem, 1.6vw, 1.35rem);
+  color: var(--color-muted);
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.link-muted {
+  color: var(--color-muted);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.link-muted:hover,
+.link-muted:focus-visible {
+  color: var(--color-text);
+}
+
+.services-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.services-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 0;
+  display: grid;
+  gap: 0.5rem;
+  color: var(--color-muted);
+}
+
+.services-list li::before {
+  content: "→";
+  margin-right: 0.6rem;
+  color: var(--color-accent);
+}
+
+.project-grid {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.project-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.project-card a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.testimonials {
+  margin-top: clamp(2.5rem, 6vw, 3.5rem);
+  padding: clamp(1.8rem, 2.5vw, 2.5rem);
+  background: var(--color-testimonials-bg);
+  border-radius: 24px;
+  border: 1px solid var(--color-border-light);
+}
+
+.testimonials blockquote {
+  margin: 0 0 1rem 0;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+.testimonials cite {
+  color: var(--color-muted);
+}
+
+.process {
+  margin-top: 2.5rem;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.process-step {
+  position: relative;
+  padding-top: 3.5rem;
+}
+
+.process-step::before {
+  content: attr(data-step);
+  position: absolute;
+  top: 1.5rem;
+  left: clamp(1.5rem, 4vw, 2rem);
+  font-size: 1rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(249, 250, 251, 0.4);
+}
+
+.contact-section {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: start;
+}
+
+.faq {
+  margin-top: 2rem;
+}
+
+.faq h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.faq details {
+  margin-bottom: 1rem;
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  background: var(--color-card);
+}
+
+.faq summary {
+  padding: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.faq summary:hover {
+  background: var(--color-accent-bg);
+}
+
+.faq p {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  color: var(--color-muted);
+}
+
+.docs-grid {
+  display: grid;
+  gap: clamp(1.5rem, 2.5vw, 2.75rem);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 2rem;
+}
+
+.docs-card a {
+  color: var(--color-accent);
+  font-weight: 600;
+}
