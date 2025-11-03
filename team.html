@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Gorba Studio · Desarrollo de software web, Android, Linux y Windows con foco en rendimiento, seguridad y UX."
+    />
+    <title>Gorba Studio · Software que impulsa ideas</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a class="logo" href="index.html">Gorba Studio</a>
+
+        <div class="navbar-right">
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-navigation"
+            data-nav-toggle
+          >
+            <span class="sr-only">Abrir menú</span>
+            <span class="menu-bar" data-bar="top" aria-hidden="true"></span>
+            <span class="menu-bar" data-bar="middle" aria-hidden="true"></span>
+            <span class="menu-bar" data-bar="bottom" aria-hidden="true"></span>
+          </button>
+
+          <span class="android-badge" aria-hidden="true">
+            <svg class="android-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M15.86 4.1l1.3-1.88a.5.5 0 0 0-.82-.56L14.9 3.6a5.57 5.57 0 0 0-5.8 0L7.66 1.66a.5.5 0 0 0-.82.56l1.3 1.88A5.52 5.52 0 0 0 6 9v6.5a1.5 1.5 0 0 0 1.5 1.5H8v2.25a1.75 1.75 0 1 0 3.5 0V17h1v2.25a1.75 1.75 0 1 0 3.5 0V17h.5A1.5 1.5 0 0 0 18 15.5V9a5.52 5.52 0 0 0-2.14-4.9zM9 8a.75.75 0 1 1 0-1.5A.75.75 0 0 1 9 8zm6 0a.75.75 0 1 1 0-1.5A.75.75 0 0 1 15 8z"
+                fill="currentColor"
+              />
+            </svg>
+            Android
+          </span>
+
+          <nav id="primary-navigation" class="nav-panel" data-nav>
+            <ul class="nav-links">
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="about.html">Nosotros</a></li>
+              <li><a href="services.html">Servicios</a></li>
+              <li><a href="projects.html">Proyectos</a></li>
+              <li><a href="roadmap.html">Proceso</a></li>
+              <li><a href="team.html">Equipo</a></li>
+              <li><a href="clients.html">Clientes</a></li>
+              <li><a href="docs.html">Documentación</a></li>
+              <li><a class="btn" href="contact.html">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div class="nav-backdrop" data-nav-backdrop hidden></div>
+    </header>
+    <main>
+      <section class="team" id="equipo">
+        <div class="container">
+          <p class="section-title">Nuestro Equipo</p>
+          <h2 class="section-heading">Los expertos detrás de la tecnología</h2>
+          <p class="section-description">
+            Conoce a los profesionales que lideran el desarrollo de software en Gorba Studio, combinando experiencia y pasión por la innovación.
+          </p>
+          <div class="grid team-grid">
+            <article class="card team-member">
+              <img src="https://via.placeholder.com/150" alt="Foto de Gorba">
+              <h3>Gorba</h3>
+              <p class="team-role">Fundador & Desarrollador Principal</p>
+              <p>Experto en Python y arquitectura de software, con más de 10 años de experiencia en la creación de soluciones escalables y de alto rendimiento.</p>
+            </article>
+            <article class="card team-member">
+              <img src="https://via.placeholder.com/150" alt="Foto de Alex">
+              <h3>Alex</h3>
+              <p class="team-role">Desarrollador Frontend</p>
+              <p>Especialista en JavaScript, React y Vue.js, enfocado en la creación de interfaces de usuario intuitivas y accesibles.</p>
+            </article>
+            <article class="card team-member">
+              <img src="https://via.placeholder.com/150" alt="Foto de Maria">
+              <h3>Maria</h3>
+              <p class="team-role">Desarrolladora Android</p>
+              <p>Apasionada por el desarrollo móvil nativo con Kotlin y Java, con experiencia en la publicación de apps en Google Play Store.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="current-year"></span> Gorba Studio. Todos los derechos reservados.</p>
+        <a class="link-muted" href="mailto:hola@gorba.studio">hola@gorba.studio</a>
+      </div>
+    </footer>
+    <script src="./scripts/main.js" defer></script>
+  </body>
+</html>

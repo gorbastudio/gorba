@@ -86,3 +86,49 @@
   font-size: 0.9rem;
   margin: 0;
 }
+
+/* Accordion Sidebar */
+.sidebar-accordion {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-accordion li {
+  margin-bottom: 0.25rem;
+}
+.sidebar-accordion input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.sidebar-accordion label {
+  display: block;
+  padding: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: var(--color-muted);
+}
+.sidebar-accordion label:hover {
+  background: var(--color-nav-hover-bg);
+  color: var(--color-accent);
+}
+.sidebar-accordion .submenu {
+  margin-left: 1rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease-out;
+}
+.sidebar-accordion input[type="checkbox"]:checked ~ .submenu {
+  max-height: 1000px;
+}
+.sidebar-accordion label::after {
+  content: "+";
+  float: right;
+  color: var(--color-muted);
+}
+.sidebar-accordion input[type="checkbox"]:checked + label::after {
+  content: "-";
+  color: var(--color-accent);
+}
