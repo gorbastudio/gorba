@@ -41,6 +41,7 @@ El sitio web de Gorba Studio ha sido completamente modularizado, temático y pro
 - ✅ Contenido actualizado y profesional.
 - ✅ Documentación integrada.
 - ✅ Desplegado en GitHub (https://github.com/gorbastudio/gorba).
+  - **Descripción del repositorio**: "Sitio web estático y modular para Gorba Studio, empresa especializada en desarrollo de software web, Android y Windows. Construido con HTML5, CSS3 y JavaScript puro, ofrece una experiencia responsiva y profesional para mostrar servicios de desarrollo full-stack."
 
 ## Próximos Pasos
 1. **Testing Exhaustivo**:
