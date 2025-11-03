@@ -68,6 +68,35 @@
       padding-bottom: 0.5rem;
     }
 
+    .sidebar hr {
+      border: none;
+      height: 1px;
+      background: var(--color-border-medium);
+      margin: 1rem 0;
+    }
+
+    .sidebar h3 {
+      color: var(--color-accent);
+      font-size: 1rem;
+      margin: 1.5rem 0 0.5rem 0;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sidebar .nav-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar .nav-section strong {
+      color: var(--color-primary);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
     .sidebar ul {
       list-style: none;
       padding: 0;
@@ -200,24 +229,9 @@
 
   <div class="sidebar" id="sidebar">
     <h2>📚 Documentación</h2>
-    <ul id="nav-list">
-      <li><a href="#" onclick="loadDoc('README.md')">Inicio</a></li>
-      <li><a href="#" onclick="loadDoc('status.md')" class="active">Estado del Proyecto</a></li>
-      <li><strong>Desarrollo Android</strong></li>
-      <li><a href="#" onclick="loadDoc('android_app_development.md')">Guía Android</a></li>
-      <li><strong>Desarrollo Backend</strong></li>
-      <li><a href="#" onclick="loadDoc('python_backend_development.md')">Python Backend</a></li>
-      <li><a href="#" onclick="loadDoc('javascript_backend_development.md')">JavaScript Backend</a></li>
-      <li><strong>Desarrollo Web</strong></li>
-      <li><a href="#" onclick="loadDoc('web_development_basic.md')">Web Básico</a></li>
-      <li><a href="#" onclick="loadDoc('web_development_dynamic.md')">Web Dinámico</a></li>
-      <li><a href="#" onclick="loadDoc('web_development_complex.md')">Web Complejo</a></li>
-      <li><strong>Desarrollo Híbrido</strong></li>
-      <li><a href="#" onclick="loadDoc('hybrid_app_development.md')">Web + Android</a></li>
-      <li><a href="#" onclick="loadDoc('windows_hybrid_app_development.md')">Apps Escritorio Python</a></li>
-      <li><strong>Arquitectura</strong></li>
-      <li><a href="#" onclick="loadDoc('integrated_platform_architecture.md')">Plataforma Integral</a></li>
-    </ul>
+    <div id="sidebar-content">
+      <!-- Sidebar content will be loaded dynamically -->
+    </div>
   </div>
 
   <div class="main-content">
@@ -243,14 +257,73 @@
   <script>
     let currentDoc = 'status.md';
 
+    async function loadSidebar() {
+      try {
+        const response = await fetch(`https://raw.githubusercontent.com/gorbastudio/gorba/main/docs/_sidebar.md`);
+        const markdown = await response.text();
+        const html = parseSidebar(markdown);
+        document.getElementById('sidebar-content').innerHTML = html;
+      } catch (error) {
+        console.error('Error loading sidebar:', error);
+        // Fallback to basic navigation
+        document.getElementById('sidebar-content').innerHTML = `
+          <ul id="nav-list">
+            <li><a href="#" onclick="loadDoc('README.md')">Inicio</a></li>
+            <li><a href="#" onclick="loadDoc('status.md')" class="active">Estado del Proyecto</a></li>
+            <li><strong>Documentos disponibles:</strong></li>
+            <li><a href="#" onclick="loadDoc('android_app_development.md')">Android</a></li>
+          </ul>
+        `;
+      }
+    }
+
+    function parseSidebar(markdown) {
+      const lines = markdown.split('\n');
+      let html = '';
+      let currentSection = '';
+
+      lines.forEach(line => {
+        const trimmed = line.trim();
+        if (!trimmed) return;
+
+        if (trimmed.startsWith('- [**') && trimmed.includes('**](')) {
+          // Main navigation items like - [**🏠 Inicio**](README.md)
+          const match = trimmed.match(/- \[\*\*([^*]+)\*\*\]\(([^)]+)\)/);
+          if (match) {
+            const [, text, link] = match;
+            const isActive = link === 'status.md' ? ' class="active"' : '';
+            html += `<div class="nav-section"><a href="#" onclick="loadDoc('${link}')${isActive}">${text}</a></div>`;
+          }
+        } else if (trimmed.startsWith('## ')) {
+          // Section headers like ## 🚀 Primeros Pasos
+          const title = trimmed.substring(3);
+          html += `<h3>${title}</h3>`;
+        } else if (trimmed.startsWith('- [') && trimmed.includes('](')) {
+          // Regular navigation items like - [Guía de Inicio](README.md)
+          const match = trimmed.match(/- \[([^\]]+)\]\(([^)]+)\)/);
+          if (match) {
+            const [, text, link] = match;
+            html += `<div class="nav-section"><a href="#" onclick="loadDoc('${link}')">${text}</a></div>`;
+          }
+        } else if (trimmed === '---') {
+          // Separator lines
+          html += '<hr>';
+        }
+      });
+
+      return html;
+    }
+
     async function loadDoc(filename) {
       currentDoc = filename;
 
-      // Update active link
-      document.querySelectorAll('#nav-list a').forEach(link => {
+      // Update active link in sidebar
+      document.querySelectorAll('#sidebar-content a').forEach(link => {
         link.classList.remove('active');
       });
-      event.target.classList.add('active');
+      if (event && event.target) {
+        event.target.classList.add('active');
+      }
 
       // Update URL hash
       window.location.hash = filename;
@@ -294,7 +367,8 @@
     }
 
     // Load initial document
-    window.addEventListener('load', () => {
+    window.addEventListener('load', async () => {
+      await loadSidebar();
       const hash = window.location.hash.substring(1);
       if (hash && hash !== currentDoc) {
         loadDoc(hash);
