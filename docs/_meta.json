@@ -1,0 +1,19 @@
+{
+  "title": "Documentación",
+  "order": {
+    "bienvenida.md": 1,
+    "soluciones": 2,
+    "plataforma-integral": 3,
+    "laboratorio": 4,
+    "confianza": 5,
+    "checklist": 6
+  },
+  "titles": {
+    "bienvenida.md": "Bienvenida",
+    "soluciones": "Soluciones",
+    "plataforma-integral": "Plataforma integral",
+    "laboratorio": "Laboratorio",
+    "confianza": "Confianza",
+    "checklist": "Checklist"
+  }
+}
