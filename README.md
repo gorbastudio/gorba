@@ -1,11 +1,6 @@
 # Gorba Studio Website
 
-<<<<<<< HEAD
 **Sitio web estático y modular para Gorba Studio, empresa especializada en desarrollo de software web, Android y Windows. Construido con HTML5, CSS3 y JavaScript puro, ofrece una experiencia responsiva y profesional para mostrar servicios de desarrollo full-stack.**
-
-=======
->>>>>>> b082d99 (Add comprehensive README.md for project documentation)
-Sitio web estático para Gorba Studio, empresa especializada en desarrollo de software web, Android y Windows.
 
 ## 🚀 Tecnologías Utilizadas
 
@@ -211,3 +206,4 @@ Propiedad de Gorba Studio.
 - **GitHub**: [@gorbastudio](https://github.com/gorbastudio)
 
 **Desarrollado por Gorba Studio**
+
