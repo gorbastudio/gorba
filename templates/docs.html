@@ -1,93 +1,59 @@
-      <section class="docs" id="documentacion">
-        <div class="container">
-          <p class="section-title">Documentación</p>
-          <h2 class="section-heading">Centro de Conocimiento</h2>
-          <p class="section-description">
-            Accede a nuestra documentación completa sobre procesos de desarrollo, mejores prácticas y recursos técnicos. Nuestra documentación está organizada por categorías para facilitar tu navegación.
-          </p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Centro de documentación boutique · Proceso, guías y recursos para preparar proyectos a medida.">
+  <title>Documentación · Centro de recursos</title>
+  <link rel="icon" type="image/png" href="../logo-gs.png" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles/styles.css">
+  <link rel="stylesheet" href="../styles/pages/docs.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/highlight.js@11/styles/github.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.css">
+</head>
+<body>
+  <button class="menu-toggle" onclick="toggleSidebar()">☰</button>
 
-          <div class="docs-navigation">
-            <a href="docs.html" class="btn">Ir al Portal de Documentación →</a>
-          </div>
+  <div class="sidebar" id="sidebar">
+    <div class="sidebar-heading">
+      <h2>Documentación</h2>
+    </div>
 
-          <div class="docs-grid">
-            <article class="card docs-card">
-              <h3>Estado del Proyecto</h3>
-              <p>
-                Información actualizada sobre el desarrollo de Gorba Studio, arquitectura del sitio y próximos pasos.
-              </p>
-              <a href="docs.html#/STATUS.md" target="_blank">Leer documento →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Guía de Desarrollo Android</h3>
-              <p>
-                Mejores prácticas para desarrollo de aplicaciones Android nativas con Kotlin y Java.
-              </p>
-              <a href="docs.html#/android_app_development.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Desarrollo Backend con Python</h3>
-              <p>
-                Nuestro proceso para construir software a medida y sistemas backend con Python, optimizados para servidores locales.
-              </p>
-              <a href="docs.html#/python_backend_development.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Desarrollo Backend con JavaScript</h3>
-              <p>
-                Nuestro proceso para construir software a medida y sistemas backend con JavaScript (Node.js), optimizados para la nube.
-              </p>
-              <a href="docs.html#/javascript_backend_development.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Desarrollo Web Básico</h3>
-              <p>
-                Nuestro proceso para construir sitios web estáticos, rápidos y seguros, ideales para landing pages y portafolios.
-              </p>
-              <a href="docs.html#/web_development_basic.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Desarrollo Web Dinámico</h3>
-              <p>
-                Nuestro proceso para construir sitios web administrables con CMS como WordPress, para blogs y sitios corporativos.
-              </p>
-              <a href="docs.html#/web_development_dynamic.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Aplicaciones Web Complejas</h3>
-              <p>
-                Nuestro proceso para construir aplicaciones web a medida, interactivas y escalables con tecnologías modernas.
-              </p>
-              <a href="docs.html#/web_development_complex.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Desarrollo Híbrido (Web + Android)</h3>
-              <p>
-                Nuestro proceso para construir una única aplicación que funciona en la web y se instala en Android, optimizando costes y tiempo.
-              </p>
-              <a href="docs.html#/hybrid_app_development.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Apps de Escritorio con Python</h3>
-              <p>
-                Nuestro proceso para construir aplicaciones de escritorio para Windows con una interfaz web y la potencia de Python.
-              </p>
-              <a href="docs.html#/windows_hybrid_app_development.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Arquitectura de Plataforma Integral</h3>
-              <p>
-                Nuestra visión para construir un ecosistema digital completo, multiplataforma y escalable para tu empresa.
-              </p>
-              <a href="docs.html#/integrated_platform_architecture.md" target="_blank">Leer guía →</a>
-            </article>
-            <article class="card docs-card">
-              <h3>Proceso de Desarrollo</h3>
-              <p>
-                Metodología ágil, control de versiones, testing y deployment utilizados en nuestros proyectos.
-              </p>
-              <a href="#proceso">Ver proceso →</a>
-            </article>
-          </div>
+    <nav class="nav-accordion" id="nav-accordion">
+      <!-- Acordeón generado dinámicamente -->
+    </nav>
+  </div>
+
+  <div class="main-content">
+    <header class="header">
+      <h1>Centro de documentación boutique</h1>
+      <p>Recursos para alinear a tu equipo con nuestro proceso artesanal, desde la inmersión hasta el lanzamiento sobre Cloudflare.</p>
+    </header>
+
+    <div class="container">
+      <a href="home.html" class="back-link">← Volver al sitio web</a>
+
+      <div id="content" class="content">
+        <div class="loading">Cargando documentación...</div>
+      </div>
+
+      <section class="docs-cta">
+        <h2>¿Necesitas acompañamiento?</h2>
+        <p>Si quieres que preparemos un briefing contigo o deseas un recorrido guiado por la documentación, escríbenos y coordinamos una sesión boutique.</p>
+        <div class="hero-actions">
+          <a class="btn" href="contact.html">Solicitar sesión guiada</a>
+          <a class="link-muted" href="roadmap.html">Revisar el proceso completo →</a>
         </div>
       </section>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/highlight.js@11/lib/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16/dist/contrib/auto-render.min.js"></script>
+  <script src="../scripts/docs.js"></script>
+</body>
+</html>

@@ -1,44 +1,136 @@
-      <section class="services" id="servicios">
-        <div class="container">
-          <p class="section-title">Servicios</p>
-          <h2 class="section-heading">Desarrollo integral de software moderno</h2>
-          <p class="section-description">
-            Ofrecemos soluciones completas desde el concepto hasta el despliegue, utilizando las mejores prácticas en Python, JavaScript, HTML, CSS y plataformas nativas para garantizar productos de alta calidad y rendimiento.
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Estudio boutique de software: soluciones web, Android y Windows con IA y Cloudflare." />
+    <title>Servicios - Gorba Studio</title>
+    <link rel="icon" type="image/png" href="../logo-gs.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles/styles.css" />
+  </head>
+  <body>
+    <!-- Header cargado dinámicamente -->
+    <div id="header-placeholder"></div>
+    
+    <main>
+      <section class="hero" id="servicios">
+        <div class="container hero-content">
+          <p class="tag">Servicios boutique</p>
+          <h1 class="hero-title">Soluciones digitales diseñadas para tu próximo salto</h1>
+          <p class="hero-lead">
+            Cada servicio nace desde cero, con código propio, IA como copiloto y la plataforma integral de Cloudflare como base. Entregamos experiencias web, Android y Windows que reflejan tu identidad sin agregar complejidad innecesaria.
           </p>
+          <div class="hero-actions">
+            <a class="btn" href="contact.html">Agenda una llamada</a>
+            <a class="link-muted" href="#especializacion">Explora nuestras especializaciones →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="especializacion">
+        <div class="container">
+          <p class="section-title">Áreas clave</p>
+          <h2 class="section-heading">Tres líneas para cubrir todo tu ecosistema digital</h2>
           <div class="grid services-grid">
             <article class="card">
-              <h3>Desarrollo Web Full-Stack</h3>
+              <h3>Experiencias web a medida</h3>
               <p>
-                Sitios web y aplicaciones web de alto rendimiento con HTML5 semántico, CSS3 modular y responsivo, JavaScript moderno (ES6+), y backend en Python con Django o Flask. Incluye optimización SEO, accesibilidad WCAG, y deployment en la nube.
+                Sitios institucionales, landings y plataformas administrables con HTML5, CSS3 y JavaScript moderno. Optimizadas para SEO técnico, accesibilidad y rendimiento global a través de Cloudflare.
               </p>
               <ul class="services-list">
-                <li>Frontend: React, Vue.js, vanilla JS para SPAs ligeras</li>
-                <li>Backend: Python con FastAPI o Django REST para APIs escalables</li>
-                <li>Optimización: Core Web Vitals, lazy loading, minificación</li>
+                <li>Estructuras ligeras sin frameworks pesados.</li>
+                <li>Contenido generado y pulido con IA más revisión humana.</li>
+                <li>Paneles a medida para que tu equipo gestione cambios sin código.</li>
               </ul>
             </article>
             <article class="card">
-              <h3>Aplicaciones Android Nativas</h3>
+              <h3>Aplicaciones Android nativas</h3>
               <p>
-                Apps móviles nativas para Android utilizando Kotlin o Java, con integración de servicios web via REST APIs. Enfocadas en UX intuitiva, performance y compatibilidad con múltiples dispositivos y versiones de Android.
+                Apps enfocadas en casos de uso específicos, con soporte offline, métricas integradas y publicación lista en Google Play. Redactamos el contenido de la ficha y acompañamos cada actualización.
               </p>
               <ul class="services-list">
-                <li>Arquitectura MVVM con ViewModels y LiveData</li>
-                <li>Integración con backend Python/Node.js</li>
-                <li>Publicación en Google Play Store con CI/CD</li>
+                <li>Desarrollo en Kotlin con integraciones a APIs Python.</li>
+                <li>Diseños fluidos y accesibles, validados con prototipos reales.</li>
+                <li>Autenticación Google como estándar para garantizar confianza.</li>
               </ul>
             </article>
             <article class="card">
-              <h3>Software para Windows</h3>
+              <h3>Herramientas para Windows</h3>
               <p>
-                Aplicaciones de escritorio para Windows usando Python con Tkinter/PyQt o .NET, ideales para automatización, herramientas empresariales y software personalizado. Incluye instalación MSI y soporte para Windows 10/11.
+                Software interno y automatizaciones que combinan interfaces modernas con acceso directo a los recursos de tu operación. Ideal para equipos que necesitan fiabilidad, control y actualizaciones ágiles.
               </p>
               <ul class="services-list">
-                <li>Scripting y automatización con Python</li>
-                <li>Interfaces GUI modernas con CSS-like styling</li>
-                <li>Integración con APIs de Windows y servicios en la nube</li>
+                <li>Implementación con Python y librerías ligeras o .NET cuando aplica.</li>
+                <li>Integraciones seguras con bases de datos y dispositivos locales.</li>
+                <li>Instaladores listos y manuales para adopción sin fricciones.</li>
               </ul>
             </article>
           </div>
         </div>
       </section>
+
+      <section class="about" id="metodologia">
+        <div class="container">
+          <p class="section-title">Cómo los construimos</p>
+          <h2 class="section-heading">El proceso boutique aplicado a cada servicio</h2>
+          <div class="process">
+            <article class="card process-step" data-step="01">
+              <h3>Inmersión curada</h3>
+              <p>
+                Diagnóstico guiado para entender a fondo tu reto. Definimos métricas de éxito, riesgos y alcance antes de escribir una línea de código.
+              </p>
+            </article>
+            <article class="card process-step" data-step="02">
+              <h3>Blueprint y prototipos</h3>
+              <p>
+                Diseñamos flujos, wireframes y contenido con apoyo de IA. Validamos contigo cada decisión para garantizar que el producto final se sienta propio.
+              </p>
+            </article>
+            <article class="card process-step" data-step="03">
+              <h3>Construcción artesanal</h3>
+              <p>
+                Código original en Python, JavaScript, HTML5 y CSS3. Documentamos cada módulo y configuramos Cloudflare + autenticación Google para un lanzamiento impecable.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="garantias">
+        <div class="container">
+          <p class="section-title">Qué aseguramos</p>
+          <h2 class="section-heading">Compromisos que vienen con cada entrega</h2>
+          <ul class="services-list">
+            <li>Código documentado y listo para evolucionar sin dependencias ocultas.</li>
+            <li>Infraestructura desplegada en Cloudflare, con monitoreos y backups activos.</li>
+            <li>Capacitaciones y handover para que tu equipo controle la operación diaria.</li>
+            <li>Soporte posterior para ajustes, iteraciones y nuevas fases del roadmap.</li>
+            <li>Comunicación clara, resúmenes ejecutivos y seguimiento continuo.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="about" id="cta-servicios">
+        <div class="container">
+          <p class="section-title">Inicia tu proyecto</p>
+          <h2 class="section-heading">Cuéntanos qué necesitas y diseñamos la propuesta a medida</h2>
+          <p class="section-description">
+            Redacta un breve resumen de tu idea, quién usará la solución y qué resultados esperas. Prepararemos una sesión de inmersión con los primeros pasos de nuestro proceso boutique.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="contact.html">Enviar briefing</a>
+            <a class="link-muted" href="roadmap.html">Revisa nuestro proceso completo →</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <!-- Footer cargado dinámicamente -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="../scripts/load-components.js"></script>
+    <script type="module" src="../scripts/index.js"></script>
+  </body>
+</html>

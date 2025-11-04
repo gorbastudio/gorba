@@ -1,0 +1,138 @@
+{
+  "name": "docs",
+  "title": "Documentación",
+  "slug": "",
+  "type": "directory",
+  "children": [
+    {
+      "name": "getting-started.md",
+      "title": "Bienvenida",
+      "slug": "getting-started.md",
+      "type": "file"
+    },
+    {
+      "name": "guides",
+      "title": "Soluciones Digitales",
+      "slug": "guides",
+      "type": "directory",
+      "children": [
+        {
+          "name": "web",
+          "title": "Sitios Web a Tu Medida",
+          "slug": "guides/web",
+          "type": "directory",
+          "children": [
+            {
+              "name": "basic.md",
+              "title": "Presencia Esencial",
+              "slug": "guides/web/basic.md",
+              "type": "file"
+            },
+            {
+              "name": "dynamic.md",
+              "title": "Sitios Autogestionables",
+              "slug": "guides/web/dynamic.md",
+              "type": "file"
+            },
+            {
+              "name": "complex.md",
+              "title": "Plataformas Web Avanzadas",
+              "slug": "guides/web/complex.md",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "mobile",
+          "title": "Aplicaciones Móviles",
+          "slug": "guides/mobile",
+          "type": "directory",
+          "children": [
+            {
+              "name": "android.md",
+              "title": "Apps Android a Medida",
+              "slug": "guides/mobile/android.md",
+              "type": "file"
+            },
+            {
+              "name": "hybrid.md",
+              "title": "Experiencias Multiplataforma",
+              "slug": "guides/mobile/hybrid.md",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "desktop",
+          "title": "Aplicaciones de Escritorio",
+          "slug": "guides/desktop",
+          "type": "directory",
+          "children": [
+            {
+              "name": "windows_hybrid.md",
+              "title": "Apps de Escritorio Híbridas",
+              "slug": "guides/desktop/windows_hybrid.md",
+              "type": "file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "architecture",
+      "title": "Plataformas Digitales Integrales",
+      "slug": "architecture",
+      "type": "directory",
+      "children": [
+        {
+          "name": "integrated_platform_architecture.md",
+          "title": "Arquitectura de Plataforma Integral",
+          "slug": "architecture/integrated_platform_architecture.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "getting-started",
+      "title": "Proyectos en Desarrollo",
+      "slug": "getting-started",
+      "type": "directory",
+      "children": [
+        {
+          "name": "status.md",
+          "title": "Lo que Estamos Construyendo",
+          "slug": "getting-started/status.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "security",
+      "title": "Confianza y Seguridad",
+      "slug": "security",
+      "type": "directory",
+      "children": [
+        {
+          "name": "security_best_practices.md",
+          "title": "Nuestro Compromiso con la Seguridad",
+          "slug": "security/security_best_practices.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "tutorials",
+      "title": "Prepárate para Empezar",
+      "slug": "tutorials",
+      "type": "directory",
+      "children": [
+        {
+          "name": "entorno_desarrollo.md",
+          "title": "Cómo Preparamos Tu Proyecto",
+          "slug": "tutorials/entorno_desarrollo.md",
+          "type": "file"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "name": "docs",
+  "title": "Documentación",
+  "slug": "",
+  "type": "directory",
+  "children": [
+    {
+      "name": "bienvenida.md",
+      "title": "Bienvenida",
+      "slug": "bienvenida.md",
+      "type": "file"
+    },
+    {
+      "name": "checklist",
+      "title": "Checklist",
+      "slug": "checklist",
+      "type": "directory",
+      "children": [
+        {
+          "name": "kickoff.md",
+          "title": "Kickoff",
+          "slug": "checklist/kickoff.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "confianza",
+      "title": "Confianza",
+      "slug": "confianza",
+      "type": "directory",
+      "children": [
+        {
+          "name": "seguridad.md",
+          "title": "Seguridad",
+          "slug": "confianza/seguridad.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "laboratorio",
+      "title": "Laboratorio",
+      "slug": "laboratorio",
+      "type": "directory",
+      "children": [
+        {
+          "name": "proyectos-en-marcha.md",
+          "title": "Proyectos En Marcha",
+          "slug": "laboratorio/proyectos-en-marcha.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "plataforma-integral",
+      "title": "Plataforma Integral",
+      "slug": "plataforma-integral",
+      "type": "directory",
+      "children": [
+        {
+          "name": "arquitectura-plataforma.md",
+          "title": "Arquitectura Plataforma",
+          "slug": "plataforma-integral/arquitectura-plataforma.md",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "soluciones",
+      "title": "Soluciones",
+      "slug": "soluciones",
+      "type": "directory",
+      "children": [
+        {
+          "name": "desktop",
+          "title": "Desktop",
+          "slug": "soluciones/desktop",
+          "type": "directory",
+          "children": [
+            {
+              "name": "escritorio-hibrido.md",
+              "title": "Escritorio Hibrido",
+              "slug": "soluciones/desktop/escritorio-hibrido.md",
+              "type": "file"
+            }
+          ]
+        },
+        {
+          "name": "mobile",
+          "title": "Mobile",
+          "slug": "soluciones/mobile",
+          "type": "directory",
+          "children": [
+            {
+              "name": "android-nativo.md",
+              "title": "Android Nativo",
+              "slug": "soluciones/mobile/android-nativo.md",
+              "type": "file"
+            },
+            {
+              "name": "mobile-multiplataforma.md",
+              "title": "Mobile Multiplataforma",
+              "slug": "soluciones/mobile/mobile-multiplataforma.md",
+              "type": "file"
+            }
+          ],
+          "meta": {
+            "order": {
+              "android.md": 1,
+              "hybrid.md": 2
+            }
+          }
+        },
+        {
+          "name": "web",
+          "title": "Web",
+          "slug": "soluciones/web",
+          "type": "directory",
+          "children": [
+            {
+              "name": "plataforma-integral.md",
+              "title": "Plataforma Integral",
+              "slug": "soluciones/web/plataforma-integral.md",
+              "type": "file"
+            },
+            {
+              "name": "presencia-esencial.md",
+              "title": "Presencia Esencial",
+              "slug": "soluciones/web/presencia-esencial.md",
+              "type": "file"
+            },
+            {
+              "name": "sitio-autogestionable.md",
+              "title": "Sitio Autogestionable",
+              "slug": "soluciones/web/sitio-autogestionable.md",
+              "type": "file"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "order": {
+      "getting-started.md": 1,
+      "getting-started": 2,
+      "guides": 3,
+      "architecture": 4,
+      "tutorials": 5,
+      "security": 6
+    }
+  }
+}
