@@ -1,7 +1,10 @@
 # Gorba Studio Website
 
+<<<<<<< HEAD
 **Sitio web estático y modular para Gorba Studio, empresa especializada en desarrollo de software web, Android y Windows. Construido con HTML5, CSS3 y JavaScript puro, ofrece una experiencia responsiva y profesional para mostrar servicios de desarrollo full-stack.**
 
+=======
+>>>>>>> b082d99 (Add comprehensive README.md for project documentation)
 Sitio web estático para Gorba Studio, empresa especializada en desarrollo de software web, Android y Windows.
 
 ## 🚀 Tecnologías Utilizadas
@@ -15,6 +18,7 @@ Sitio web estático para Gorba Studio, empresa especializada en desarrollo de so
 
 ```
 gorba/
+<<<<<<< HEAD
 ├── index.html                    # Redirección a templates/home.html
 ├── scripts/
 │   ├── index.js                 # Punto de entrada principal (ES6 modules)
@@ -56,6 +60,26 @@ gorba/
 │   ├── guides/
 │   ├── architecture/
 │   └── examples/
+=======
+├── index.html              # Archivo principal
+├── scripts/
+│   └── main.js            # JavaScript principal
+├── styles/
+│   └── styles.css         # Estilos combinados
+├── templates/             # Templates modulares HTML
+│   ├── header.html
+│   ├── hero.html
+│   ├── about.html
+│   ├── services.html
+│   ├── projects.html
+│   ├── roadmap.html
+│   ├── contact.html
+│   ├── docs.html
+│   └── footer.html
+├── docs/                  # Documentación
+│   ├── STATUS.md
+│   └── android_app_development.md
+>>>>>>> b082d99 (Add comprehensive README.md for project documentation)
 └── README.md
 ```
 
@@ -88,6 +112,7 @@ gorba/
 
 ### Tema de Color
 
+<<<<<<< HEAD
 Los colores están centralizados en variables CSS. Para cambiar el tema, edita `:root` en `styles/theme.css`.
 
 ### Estilos
@@ -107,11 +132,15 @@ El código JavaScript está organizado en módulos ES6:
 - **`scripts/modules/android.js`**: Integración con Android WebView
 - **`scripts/modules/navigation.js`**: Navegación colapsable y responsive
 - **`scripts/modules/utils.js`**: Funciones utilitarias (debounce, throttle, etc.)
+=======
+Los colores están centralizados en variables CSS. Para cambiar el tema, edita `:root` en `styles.css`.
+>>>>>>> b082d99 (Add comprehensive README.md for project documentation)
 
 ### Contenido
 
 Edita los archivos en `templates/` para modificar secciones.
 
+<<<<<<< HEAD
 ### Documentación
 
 La sección de documentación (`docs.html`) se genera dinámicamente a partir de los archivos en la carpeta `/docs`.
@@ -149,6 +178,16 @@ La sección de documentación (`docs.html`) se genera dinámicamente a partir de
 - ✅ **SEO optimizado**: Meta tags y estructura semántica
 - ✅ **Performance**: CSS modular, lazy loading, sin frameworks pesados
 - ✅ **Accesibilidad**: ARIA labels, navegación por teclado
+=======
+## 📱 Características
+
+- ✅ Diseño responsivo
+- ✅ Menú colapsable para móviles
+- ✅ Carga modular de contenido
+- ✅ Compatible con app Android
+- ✅ SEO básico
+- ✅ Performance optimizada
+>>>>>>> b082d99 (Add comprehensive README.md for project documentation)
 
 ## 🚀 Despliegue
 
